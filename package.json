@@ -1,0 +1,26 @@
+{
+  "description": "TEST",
+  "keywords": [
+    "bacadra"
+  ],
+  "engines": {
+    "atom": ">=1.100.0 <2.0.0"
+  },
+  "main": "./lib/main",
+  "name": "scroll-map",
+  "homepage": "https://github.com/bacadra/pulsar-scroll-map",
+  "url": "https://github.com/bacadra/pulsar-scroll-map",
+  "repository": "https://github.com/bacadra/pulsar-scroll-map",
+  "version": "0.0.0",
+  "license": "MIT",
+  "consumedServices": {
+    "find-and-replace": {
+      "versions": {
+        "0.0.1": "findMap"
+      }
+    }
+  },
+  "dependencies": {
+    "etch": "^0.14.1"
+  }
+}
