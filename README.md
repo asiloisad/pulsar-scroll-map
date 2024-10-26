@@ -1,6 +1,6 @@
 # scroll-map
 
-**The package is under development...**
+Show markers on the scroll-bar of text-editor. Currently, cursor position and find-and-replace results are supported. The style of the markers is adjusted for one-light and one-dark themes.
 
 ## Installation
 
@@ -8,4 +8,4 @@ To install `scroll-map` search for [scroll-map](https://web.pulsar-edit.dev/pack
 
 # Contributing
 
-If you have any ideas on how to improve the package, spot any bugs, or would like to support the development of new features, please feel free to share them via GitHub.
+Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback’s welcome!
