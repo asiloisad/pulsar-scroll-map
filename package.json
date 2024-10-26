@@ -11,7 +11,7 @@
   "homepage": "https://github.com/bacadra/pulsar-scroll-map",
   "url": "https://github.com/bacadra/pulsar-scroll-map",
   "repository": "https://github.com/bacadra/pulsar-scroll-map",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "consumedServices": {
     "find-and-replace": {
