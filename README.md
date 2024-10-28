@@ -1,10 +1,45 @@
 # scroll-map
 
-Show markers on the scroll-bar of text-editor. Currently, cursor position and find-and-replace results are supported. The style of the markers is adjusted for one-light and one-dark themes.
+Show markers on the scroll bar of text-editor. Cursors position and find-and-replace results are supported. The style of the markers is adjusted for one-light and one-dark themes. Markers work like hyperlinks.
+
+![context-menu](https://github.com/bacadra/pulsar-scroll-map/blob/master/assets/demo.png?raw=true)
 
 ## Installation
 
 To install `scroll-map` search for [scroll-map](https://web.pulsar-edit.dev/packages/scroll-map) in the Install pane of the Pulsar settings or run `ppm install scroll-map`. Alternatively, you can run `ppm install bacadra/pulsar-scroll-map` to install a package directly from the Github repository.
+
+## Customize the appearance
+
+Markers can be customized to meet the user's needs. The customization file `styles.less` can be opened by menu bar `File/Stylesheet...` or by command `application:open-your-stylesheet`.
+
+- e.g. change color of cursors markers:
+  ```less
+  .scroll-map .scroll-item.cursor-item {
+    background-color: red;
+  }
+  ```
+
+- e.g. change color of find-and-replace markers:
+  ```less
+  .scroll-map .scroll-item.find-item {
+    background-color: red;
+  }
+  ```
+
+- e.g. change height of markers:
+  ```less
+  .scroll-map .scroll-item {
+    height: 10px;
+  }
+  ```
+
+- e.g. change width of markers and margin:
+  ```less
+  .scroll-map {
+    width: 10px;
+    right: 0px;
+  }
+  ```
 
 # Contributing
 
