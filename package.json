@@ -16,7 +16,19 @@
   "consumedServices": {
     "find-and-replace": {
       "versions": {
-        "0.0.1": "findMap"
+        "0.0.1": "findLayer"
+      }
+    },
+    "navigation-panel": {
+      "versions": {
+        "0.0.1": "naviLayer"
+      }
+    }
+  },
+  "providedServices": {
+    "scroll-map": {
+      "versions": {
+        "0.0.1": "serviceProvider"
       }
     }
   },

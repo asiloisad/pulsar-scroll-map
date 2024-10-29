@@ -1,6 +1,6 @@
 # scroll-map
 
-Show markers on the scroll bar of text-editor. Cursors position and find-and-replace results are supported. The style of the markers is adjusted for one-light and one-dark themes. Markers work like hyperlinks.
+Show markers on the scroll bar of text-editor. The build-in layer are designed to create markers of cursors position, find-and-replace results and navigation-panel headers. The style of the markers is adjusted for one-light and one-dark themes. Markers work like hyperlinks.
 
 ![context-menu](https://github.com/bacadra/pulsar-scroll-map/blob/master/assets/demo.png?raw=true)
 
@@ -14,14 +14,14 @@ Markers can be customized to meet the user's needs. The customization file `styl
 
 - e.g. change color of cursors markers:
   ```less
-  .scroll-map .scroll-item.cursor-item {
+  .scroll-map .scroll-item.cursor-layer {
     background-color: red;
   }
   ```
 
 - e.g. change color of find-and-replace markers:
   ```less
-  .scroll-map .scroll-item.find-item {
+  .scroll-map .scroll-item.find-layer {
     background-color: red;
   }
   ```
@@ -29,7 +29,7 @@ Markers can be customized to meet the user's needs. The customization file `styl
 - e.g. change height of markers:
   ```less
   .scroll-map .scroll-item {
-    height: 10px;
+    height: 5px !important;
   }
   ```
 
@@ -40,6 +40,10 @@ Markers can be customized to meet the user's needs. The customization file `styl
     right: 0px;
   }
   ```
+
+## API Documentation
+
+The chapter is under development.
 
 # Contributing
 
