@@ -3,16 +3,19 @@
 .scroll-map {
   position: absolute;
   top: 0px;
-  right: 3px;
+  right: 0px;
   z-index: 9;
-  width: 4px;
+  width: 10px;
   bottom: 10px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
 
   .scroll-item {
     position: absolute;
-    width: 100%;
+    width: 4px;
     opacity: 0.5;
-    background-color: red;
+    pointer-events: auto;
     cursor: default;
 
     &.cursor-layer {

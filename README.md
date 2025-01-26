@@ -26,18 +26,31 @@ Markers can be customized to meet the user's needs. The customization file `styl
   }
   ```
 
-- e.g. change height of markers:
+- e.g. change color of navigation-panel markers:
+  ```less
+  .scroll-map .scroll-item.navi-layer {
+    background-color: red;
+  }
+  ```
+
+- e.g. change height of all markers:
   ```less
   .scroll-map .scroll-item {
     height: 5px !important;
   }
   ```
 
-- e.g. change width of markers and margin:
+- e.g. change width of markers:
+  ```less
+  .scroll-map .scroll-item {
+    width: 10px;
+  }
+  ```
+
+- e.g. fit scroll-marker width to scroll-bar width (default is 10px):
   ```less
   .scroll-map {
-    width: 10px;
-    right: 0px;
+    width: 15px;
   }
   ```
 
