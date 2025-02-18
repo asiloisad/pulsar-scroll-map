@@ -1,7 +1,7 @@
 {
   "name": "scroll-map",
   "description": "Show markers on the scroll bar of text-editor",
-  "repository": "https://github.com/bacadra/pulsar-scroll-map",
+  "repository": "https://github.com/asiloisad/pulsar-scroll-map",
   "keywords": [
     "scroll",
     "map",
