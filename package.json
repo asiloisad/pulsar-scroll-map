@@ -35,5 +35,28 @@
   },
   "dependencies": {
     "etch": "^0.14.1"
+  },
+  "configSchema": {
+    "cursorLayer": {
+      "order": 1,
+      "title": "Show markers from cursors position",
+      "description": "Show markers for each cursor in the editor. Restart needed.",
+      "type": "boolean",
+      "default": true
+    },
+    "findLayer": {
+      "order": 2,
+      "title": "Show markers from find-and-replace",
+      "description": "Show markers from [find-and-replace](https://github.com/pulsar-edit/pulsar/tree/master/packages/find-and-replace) results. Restart needed.",
+      "type": "boolean",
+      "default": true
+    },
+    "naviLayer": {
+      "order": 3,
+      "title": "Show markers of navigation-panel",
+      "description": "Show markers from [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel) header list. Restart needed.",
+      "type": "boolean",
+      "default": true
+    }
   }
 }
