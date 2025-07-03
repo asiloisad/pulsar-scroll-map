@@ -39,24 +39,72 @@
   "configSchema": {
     "cursorLayer": {
       "order": 1,
-      "title": "Show markers from cursors position",
-      "description": "Show markers for each cursor in the editor. Restart needed.",
-      "type": "boolean",
-      "default": true
+      "title": "Cursors position markers",
+      "description": "Markers for each cursor in the editor.",
+      "type": "object",
+      "properties": {
+        "state": {
+          "order": 1,
+          "type": "boolean",
+          "title": "Layer state",
+          "description": "Restart needed.",
+          "default": true
+        },
+        "threshold": {
+          "order": 2,
+          "title": "Layer threshold",
+          "description": "The limit doesn't apply if zero.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      }
     },
     "findLayer": {
       "order": 2,
-      "title": "Show markers from find-and-replace",
-      "description": "Show markers from [find-and-replace](https://github.com/pulsar-edit/pulsar/tree/master/packages/find-and-replace) results. Restart needed.",
-      "type": "boolean",
-      "default": true
+      "title": "find-and-replace markers",
+      "description": "Markers from [find-and-replace](https://github.com/pulsar-edit/pulsar/tree/master/packages/find-and-replace) results.",
+      "type": "object",
+      "properties": {
+        "state": {
+          "order": 1,
+          "type": "boolean",
+          "title": "Layer state",
+          "description": "Restart needed.",
+          "default": true
+        },
+        "threshold": {
+          "order": 2,
+          "title": "Layer threshold",
+          "description": "The limit doesn't apply if zero.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      }
     },
     "naviLayer": {
       "order": 3,
-      "title": "Show markers of navigation-panel",
-      "description": "Show markers from [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel) header list. Restart needed.",
-      "type": "boolean",
-      "default": true
+      "title": "navigation-panel markers",
+      "description": "Markers from [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel) header list.",
+      "type": "object",
+      "properties": {
+        "state": {
+          "order": 1,
+          "type": "boolean",
+          "title": "Layer state",
+          "description": "Restart needed.",
+          "default": true
+        },
+        "threshold": {
+          "order": 2,
+          "title": "Layer threshold",
+          "description": "The limit doesn't apply if zero.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      }
     }
   }
 }

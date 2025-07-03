@@ -1,6 +1,6 @@
 # scroll-map
 
-Show markers on the scroll bar of text-editor. The build-in layer are designed to create markers of cursors position, find-and-replace results and navigation-panel headers. The style of the markers is adjusted for one-light and one-dark themes. Markers work like hyperlinks.
+Show markers on the scroll bar of text-editor. The build-in layer are designed to create markers of cursors position, find-and-replace results and navigation-panel headers. The style of the markers is adjusted for one-light and one-dark themes. Markers work like hyperlinks. If layer markers threshold is exceed, then layer markers are turn off.
 
 ![context-menu](https://github.com/asiloisad/pulsar-scroll-map/blob/master/assets/demo.png?raw=true)
 
