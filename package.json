@@ -56,7 +56,7 @@
           "description": "The limit doesn't apply if zero.",
           "type": "integer",
           "minimum": 0,
-          "default": 0
+          "default": 100
         }
       }
     },
@@ -79,7 +79,7 @@
           "description": "The limit doesn't apply if zero.",
           "type": "integer",
           "minimum": 0,
-          "default": 0
+          "default": 500
         }
       }
     },
@@ -102,7 +102,7 @@
           "description": "The limit doesn't apply if zero.",
           "type": "integer",
           "minimum": 0,
-          "default": 0
+          "default": 25
         }
       }
     }
