@@ -31,6 +31,11 @@
       "versions": {
         "0.0.1": "serviceProvider"
       }
+    },
+    "linter-ui": {
+      "versions": {
+        "1.0.0": "linterLayer"
+      }
     }
   },
   "dependencies": {
@@ -103,6 +108,29 @@
           "type": "integer",
           "minimum": 0,
           "default": 25
+        }
+      }
+    },
+    "linterLayer": {
+      "order": 3,
+      "title": "linter markers",
+      "description": "Markers from [linter](https://github.com/steelbrain/linter).",
+      "type": "object",
+      "properties": {
+        "state": {
+          "order": 1,
+          "type": "boolean",
+          "title": "Layer state",
+          "description": "Restart needed.",
+          "default": true
+        },
+        "threshold": {
+          "order": 2,
+          "title": "Layer threshold",
+          "description": "The limit doesn't apply if zero.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
         }
       }
     }
