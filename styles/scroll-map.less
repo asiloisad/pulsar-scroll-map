@@ -51,5 +51,36 @@
       background-color: @ui-site-color-4;
       z-index: 9;
     }
+    // PDF heading levels - different colors (1-5) and sizes
+    &.pdf-h1 {
+      height: 4px;
+      background-color: @ui-site-color-1;
+      z-index: 11;
+    }
+    &.pdf-h2 {
+      height: 3px;
+      background-color: @ui-site-color-2;
+      z-index: 10;
+    }
+    &.pdf-h3 {
+      height: 3px;
+      background-color: @ui-site-color-3;
+      z-index: 9;
+    }
+    &.pdf-h4 {
+      height: 2px;
+      background-color: @ui-site-color-4;
+      z-index: 8;
+    }
+    &.pdf-h5, &.pdf-h6 {
+      height: 2px;
+      background-color: @ui-site-color-5;
+      z-index: 7;
+    }
+    &.pdf-current {
+      height: 5px;
+      background-color: @text-color-highlight;
+      z-index: 13;
+    }
   }
 }
