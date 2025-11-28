@@ -39,7 +39,7 @@
     },
     "linter-ui": {
       "versions": {
-        "1.0.0": "linterUIProvider"
+        "1.0.0": "linterProvider"
       }
     }
   },
