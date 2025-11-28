@@ -24,6 +24,11 @@
       "versions": {
         "0.0.1": "naviLayer"
       }
+    },
+    "hydrogen.breakpoints": {
+      "versions": {
+        "0.0.1": "hydrogenLayer"
+      }
     }
   },
   "providedServices": {
@@ -112,9 +117,32 @@
       }
     },
     "linterLayer": {
-      "order": 3,
+      "order": 4,
       "title": "linter markers",
       "description": "Markers from [linter](https://github.com/steelbrain/linter).",
+      "type": "object",
+      "properties": {
+        "state": {
+          "order": 1,
+          "type": "boolean",
+          "title": "Layer state",
+          "description": "Restart needed.",
+          "default": true
+        },
+        "threshold": {
+          "order": 2,
+          "title": "Layer threshold",
+          "description": "The limit doesn't apply if zero.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      }
+    },
+    "hydrogenLayer": {
+      "order": 5,
+      "title": "hydrogen-next markers",
+      "description": "Markers for cell breakpoints from [hydrogen-next](https://github.com/asiloisad/pulsar-hydrogen-next).",
       "type": "object",
       "properties": {
         "state": {
