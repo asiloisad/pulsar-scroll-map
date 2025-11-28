@@ -17,17 +17,17 @@
   "consumedServices": {
     "find-and-replace": {
       "versions": {
-        "0.0.1": "findLayer"
+        "0.0.1": "consumeFindService"
       }
     },
     "navigation-panel": {
       "versions": {
-        "0.0.1": "naviLayer"
+        "0.0.1": "consumeNaviService"
       }
     },
     "hydrogen.breakpoints": {
       "versions": {
-        "0.0.1": "hydrogenLayer"
+        "0.0.1": "consumeHydrogenService"
       }
     }
   },
@@ -39,7 +39,7 @@
     },
     "linter-ui": {
       "versions": {
-        "1.0.0": "linterLayer"
+        "1.0.0": "linterUIProvider"
       }
     }
   },
@@ -57,7 +57,7 @@
           "order": 1,
           "type": "boolean",
           "title": "Layer state",
-          "description": "Restart needed.",
+          "description": "Enable or disable this layer.",
           "default": true
         },
         "threshold": {
@@ -80,7 +80,7 @@
           "order": 1,
           "type": "boolean",
           "title": "Layer state",
-          "description": "Restart needed.",
+          "description": "Enable or disable this layer.",
           "default": true
         },
         "threshold": {
@@ -103,7 +103,7 @@
           "order": 1,
           "type": "boolean",
           "title": "Layer state",
-          "description": "Restart needed.",
+          "description": "Enable or disable this layer.",
           "default": true
         },
         "threshold": {
@@ -126,7 +126,7 @@
           "order": 1,
           "type": "boolean",
           "title": "Layer state",
-          "description": "Restart needed.",
+          "description": "Enable or disable this layer.",
           "default": true
         },
         "threshold": {
@@ -149,7 +149,7 @@
           "order": 1,
           "type": "boolean",
           "title": "Layer state",
-          "description": "Restart needed.",
+          "description": "Enable or disable this layer.",
           "default": true
         },
         "threshold": {
