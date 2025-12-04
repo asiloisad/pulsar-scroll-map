@@ -82,7 +82,7 @@ The package provides a service for other packages to create custom scroll maps:
 "consumedServices": {
   "scroll-map": {
     "versions": {
-      "0.0.1": "consumeScrollMap"
+      "^1.0.0": "consumeScrollMap"
     }
   }
 }
@@ -105,12 +105,12 @@ consumeScrollMap(service) {
 }
 ```
 
-### Layer Base Class
+### ScrollMapLayer Base Class
 
-For text editor layers, extend the `Layer` base class provided by the service:
+For text editor layers, extend the `ScrollMapLayer` base class provided by the service:
 
 ```javascript
-class MyLayer extends service.Layer {
+class MyLayer extends service.ScrollMapLayer {
   constructor(editor) {
     super({ editor, name: "myname", timer: 50 });
     // Subscribe to events that should trigger updates
@@ -130,7 +130,7 @@ class MyLayer extends service.Layer {
 }
 ```
 
-The Layer class provides:
+The ScrollMapLayer class provides:
 - `this.editor` - The text editor instance
 - `this.name` - Layer name (used for CSS class `{name}-layer`)
 - `this.items` - Array of marker items to render
