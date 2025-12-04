@@ -19,27 +19,12 @@
       "versions": {
         "0.0.1": "consumeFindService"
       }
-    },
-    "navigation-panel": {
-      "versions": {
-        "0.0.1": "consumeNaviService"
-      }
-    },
-    "hydrogen.breakpoints": {
-      "versions": {
-        "0.0.1": "consumeHydrogenService"
-      }
     }
   },
   "providedServices": {
     "scroll-map": {
       "versions": {
         "0.0.1": "serviceProvider"
-      }
-    },
-    "linter-ui": {
-      "versions": {
-        "1.0.0": "linterProvider"
       }
     }
   },
@@ -74,75 +59,6 @@
       "order": 2,
       "title": "find-and-replace markers",
       "description": "Markers from [find-and-replace](https://github.com/pulsar-edit/pulsar/tree/master/packages/find-and-replace) results.",
-      "type": "object",
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "threshold": {
-          "order": 2,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "naviLayer": {
-      "order": 3,
-      "title": "navigation-panel markers",
-      "description": "Markers from [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel) header list.",
-      "type": "object",
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "threshold": {
-          "order": 2,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "linterLayer": {
-      "order": 4,
-      "title": "linter markers",
-      "description": "Markers from [linter](https://github.com/steelbrain/linter).",
-      "type": "object",
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "threshold": {
-          "order": 2,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "hydrogenLayer": {
-      "order": 5,
-      "title": "hydrogen-next markers",
-      "description": "Markers for cell breakpoints from [hydrogen-next](https://github.com/asiloisad/pulsar-hydrogen-next).",
       "type": "object",
       "properties": {
         "state": {

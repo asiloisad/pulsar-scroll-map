@@ -1,6 +1,12 @@
 # scroll-map
 
-Show markers on the scroll bar of text-editor. The build-in layer are designed to create markers of cursors position, find-and-replace results, navigation-panel headers and linter items. The style of the markers is adjusted for one-light and one-dark themes. Markers work like hyperlinks. If layer markers threshold is exceed, then layer markers are turn off.
+Show markers on the scroll bar of text-editor. The style of the markers is adjusted for one-light and one-dark themes. Markers work like hyperlinks. If layer markers threshold is exceeded, then layer markers are turned off.
+
+**Built-in layers** (for Pulsar core packages):
+- Cursor positions
+- find-and-replace results
+
+The recommended method for packages to add scroll-map layers is via the service API (see API Documentation below).
 
 ![context-menu](https://github.com/asiloisad/pulsar-scroll-map/blob/master/assets/demo.png?raw=true)
 
@@ -26,9 +32,22 @@ Markers can be customized to meet the user's needs. The customization file `styl
   }
   ```
 
-- e.g. change color of navigation-panel markers:
+- e.g. change color of linter markers (provided by linter-bundle package):
   ```less
-  .scroll-map .scroll-item.navi-layer {
+  .scroll-map .scroll-item.linter-layer {
+    background-color: red;
+  }
+  .scroll-map .scroll-item.linter-layer.error {
+    background-color: red;
+  }
+  .scroll-map .scroll-item.linter-layer.warning {
+    background-color: orange;
+  }
+  ```
+
+- e.g. change color of hydrogen markers (provided by hydrogen-next package):
+  ```less
+  .scroll-map .scroll-item.hydrogen-layer {
     background-color: red;
   }
   ```
@@ -53,25 +72,6 @@ Markers can be customized to meet the user's needs. The customization file `styl
     width: 15px;
   }
   ```
-
-## PDF Viewer Integration
-
-The package integrates with [pdf-viewer](https://github.com/asiloisad/pulsar-pdf-viewer) to display document outline markers on the scroll bar. When viewing a PDF with an outline (table of contents), markers are displayed for each heading level:
-
-- **H1** headers use `@ui-site-color-1`
-- **H2** headers use `@ui-site-color-2`
-- **H3** headers use `@ui-site-color-3`
-- **H4** headers use `@ui-site-color-4`
-- **H5/H6** headers use `@ui-site-color-5`
-
-Clicking on a marker navigates to that section in the PDF. The current visible section is highlighted with `@text-color-highlight`.
-
-To customize PDF markers:
-```less
-.scroll-map .scroll-item.pdf-h1 {
-  background-color: red;
-}
-```
 
 ## API Documentation
 
