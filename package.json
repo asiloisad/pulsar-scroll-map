@@ -52,6 +52,13 @@
           "type": "integer",
           "minimum": 0,
           "default": 0
+        },
+        "showAll": {
+          "order": 3,
+          "type": "boolean",
+          "title": "Show all markers",
+          "description": "If disabled, only show the last cursor.",
+          "default": true
         }
       }
     },
@@ -75,6 +82,13 @@
           "type": "integer",
           "minimum": 0,
           "default": 0
+        },
+        "permanent": {
+          "order": 3,
+          "type": "boolean",
+          "title": "Permanent view",
+          "description": "Display markers even when find-and-replace panel is closed.",
+          "default": true
         }
       }
     }
