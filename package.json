@@ -57,6 +57,7 @@
       "title": "Cursors position markers",
       "description": "Markers for each cursor in the editor.",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "state": {
           "order": 1,
@@ -65,8 +66,15 @@
           "description": "Enable or disable this layer.",
           "default": true
         },
-        "threshold": {
+        "total": {
           "order": 2,
+          "type": "boolean",
+          "title": "Show all cursors",
+          "description": "Display all cursors or only the last one.",
+          "default": true
+        },
+        "threshold": {
+          "order": 3,
           "title": "Layer threshold",
           "description": "The limit doesn't apply if zero.",
           "type": "integer",
@@ -80,6 +88,7 @@
       "title": "find-and-replace markers",
       "description": "Markers from [find-and-replace](https://github.com/pulsar-edit/pulsar/tree/master/packages/find-and-replace) results.",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "state": {
           "order": 1,
@@ -88,8 +97,15 @@
           "description": "Enable or disable this layer.",
           "default": true
         },
-        "threshold": {
+        "permanent": {
           "order": 2,
+          "type": "boolean",
+          "title": "Permanent view",
+          "description": "Keep markers visible even when the find panel is closed.",
+          "default": true
+        },
+        "threshold": {
+          "order": 3,
           "title": "Layer threshold",
           "description": "The limit doesn't apply if zero.",
           "type": "integer",
@@ -103,6 +119,7 @@
       "title": "navigation-panel markers",
       "description": "Markers from [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel) header list.",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "state": {
           "order": 1,
@@ -111,8 +128,16 @@
           "description": "Enable or disable this layer.",
           "default": true
         },
-        "threshold": {
+        "maxDepth": {
           "order": 2,
+          "type": "integer",
+          "title": "Max depth",
+          "description": "Maximum header depth to display. Zero means no limit.",
+          "minimum": 0,
+          "default": 0
+        },
+        "threshold": {
+          "order": 3,
           "title": "Layer threshold",
           "description": "The limit doesn't apply if zero.",
           "type": "integer",
@@ -126,6 +151,7 @@
       "title": "linter markers",
       "description": "Markers from [linter](https://github.com/steelbrain/linter).",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "state": {
           "order": 1,
@@ -149,6 +175,7 @@
       "title": "hydrogen-next markers",
       "description": "Markers for cell breakpoints from [hydrogen-next](https://github.com/asiloisad/pulsar-hydrogen-next).",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "state": {
           "order": 1,
@@ -172,6 +199,7 @@
       "title": "diff-view markers",
       "description": "Markers for diff chunks from [diff-view](https://github.com/asiloisad/pulsar-diff-view).",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "state": {
           "order": 1,
