@@ -29,12 +29,17 @@
       "versions": {
         "0.0.1": "consumeHydrogenService"
       }
+    },
+    "diff-view": {
+      "versions": {
+        "0.0.1": "consumeDiffService"
+      }
     }
   },
   "providedServices": {
     "scroll-map": {
       "versions": {
-        "0.0.1": "serviceProvider"
+        "3.0.0": "serviceProvider"
       }
     },
     "linter-ui": {
@@ -143,6 +148,29 @@
       "order": 5,
       "title": "hydrogen-next markers",
       "description": "Markers for cell breakpoints from [hydrogen-next](https://github.com/asiloisad/pulsar-hydrogen-next).",
+      "type": "object",
+      "properties": {
+        "state": {
+          "order": 1,
+          "type": "boolean",
+          "title": "Layer state",
+          "description": "Enable or disable this layer.",
+          "default": true
+        },
+        "threshold": {
+          "order": 2,
+          "title": "Layer threshold",
+          "description": "The limit doesn't apply if zero.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      }
+    },
+    "diffLayer": {
+      "order": 6,
+      "title": "diff-view markers",
+      "description": "Markers for diff chunks from [diff-view](https://github.com/asiloisad/pulsar-diff-view).",
       "type": "object",
       "properties": {
         "state": {
