@@ -34,6 +34,11 @@
       "versions": {
         "0.0.1": "consumeDiffService"
       }
+    },
+    "highlightSimple": {
+      "versions": {
+        "1.0.0": "consumeHighlightService"
+      }
     }
   },
   "providedServices": {
@@ -198,6 +203,30 @@
       "order": 6,
       "title": "diff-view markers",
       "description": "Markers for diff chunks from [diff-view](https://github.com/asiloisad/pulsar-diff-view).",
+      "type": "object",
+      "collapsed": true,
+      "properties": {
+        "state": {
+          "order": 1,
+          "type": "boolean",
+          "title": "Layer state",
+          "description": "Enable or disable this layer.",
+          "default": true
+        },
+        "threshold": {
+          "order": 2,
+          "title": "Layer threshold",
+          "description": "The limit doesn't apply if zero.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      }
+    },
+    "highlightLayer": {
+      "order": 7,
+      "title": "highlight-simple markers",
+      "description": "Markers for selected text highlights from [highlight-simple](https://github.com/asiloisad/pulsar-highlight-simple).",
       "type": "object",
       "collapsed": true,
       "properties": {
