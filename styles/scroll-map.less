@@ -1,13 +1,9 @@
 // default values
-@scrollbar-width: 10px;
-@scrollbar-edge-offset: 0px;
-@scrollbar-marker-width-left: 3px;
+@scrollbar-width: 8px;
+@scrollbar-edge-offset: 1px;
+@scrollbar-marker-width-left: 2px;
 @scrollbar-marker-width-center: 4px;
-@scrollbar-marker-width-cursor: 4px;
-@scrollbar-marker-width-right: 3px;
-@scrollbar-marker-height-large: 6px;
-@scrollbar-marker-height-medium: 4px;
-@scrollbar-marker-height-small: 2px;
+@scrollbar-marker-width-right: 2px;
 
 @import "ui-variables";
 
@@ -22,78 +18,71 @@
 
   .scroll-item {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: @scrollbar-edge-offset;
+    right: @scrollbar-edge-offset;
     margin: 0 auto;
     width: @scrollbar-marker-width-center;
     opacity: 0.5;
     pointer-events: auto;
     transform: translateY(-50%);
+    min-height: 2px;
+    height: var(--scroll-marker-height);
     cursor: default;
 
     // cursor layer
     &.cursor-layer {
-      height: @scrollbar-marker-height-small;
-      width: @scrollbar-marker-width-cursor;
       background-color: @text-color-subtle;
-      z-index: 16;
-    }
-
-    // find layer
-    &.find-layer {
-      height: @scrollbar-marker-height-medium;
-      background-color: @ui-site-color-2;
-      z-index: 15;
+      z-index: 18;
     }
 
     // highlight layer
     &.highlight-layer {
-      height: @scrollbar-marker-height-medium;
       background-color: @syntax-result-marker-color-selected;
-      z-index: 15;
+      z-index: 17;
     }
 
-    // navi layer
-    &.navi-layer {
-      height: @scrollbar-marker-height-small;
-      background-color: @ui-site-color-3;
-      z-index: 14;
+    // find layer
+    &.find-layer {
+      background-color: @ui-site-color-2;
+      z-index: 16;
     }
 
-    // linter layer
+    // linter layer (right side)
     &.linter-layer {
-      right: auto;
-      left: @scrollbar-edge-offset;
-      height: @scrollbar-marker-height-large;
+      left: auto;
+      right: @scrollbar-edge-offset;
       width: @scrollbar-marker-width-left;
-      z-index: 13;
+      z-index: 15;
       &.error   { background-color: @text-color-error; }
       &.warning { background-color: @text-color-warning; }
       &.info    { background-color: @text-color-info; }
     }
 
+    // navi layer
+    &.navi-layer {
+      background-color: @ui-site-color-3;
+      z-index: 14;
+    }
+
     // hydrogen layer
     &.hydrogen-layer {
-      height: @scrollbar-marker-height-small;
       background-color: @ui-site-color-4;
-      z-index: 12;
+      z-index: 13;
     }
 
     // diff layer
     &.diff-layer {
-      height: @scrollbar-marker-height-large;
-      z-index: 11;
+      z-index: 12;
       &.added   { background-color: @text-color-success; }
       &.removed { background-color: @text-color-error; }
     }
 
-    // git layer (uses proportional height, no transform needed)
+    // git layer (left side)
     &.git-layer {
-      left: auto;
-      right: @scrollbar-edge-offset;
-      height: @scrollbar-marker-height-large;
+      right: auto;
+      left: @scrollbar-edge-offset;
       width: @scrollbar-marker-width-right;
-      z-index: 10;
+      z-index: 11;
       &.added    { background-color: @text-color-success; }
       &.modified { background-color: @text-color-warning; }
       &.removed  { background-color: @text-color-error; }
