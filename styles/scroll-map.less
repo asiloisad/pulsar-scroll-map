@@ -1,6 +1,6 @@
 // default values
-@scrollbar-width: 8px;
-@scrollbar-edge-offset: 1px;
+@scrollbar-width: 10px;
+@scrollbar-marker-edge-offset: 0px;
 @scrollbar-marker-width-left: 2px;
 @scrollbar-marker-width-center: 4px;
 @scrollbar-marker-width-right: 2px;
@@ -11,21 +11,21 @@
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: @scrollbar-width;
   width: @scrollbar-width;
   z-index: 9;
   pointer-events: none;
 
   .scroll-item {
     position: absolute;
-    left: @scrollbar-edge-offset;
-    right: @scrollbar-edge-offset;
+    left: @scrollbar-marker-edge-offset;
+    right: @scrollbar-marker-edge-offset;
     margin: 0 auto;
     width: @scrollbar-marker-width-center;
     opacity: 0.5;
     pointer-events: auto;
     transform: translateY(-50%);
-    min-height: 2px;
+    min-height: 3px;
     height: var(--scroll-marker-height);
     cursor: default;
 
@@ -47,10 +47,10 @@
       z-index: 16;
     }
 
-    // linter layer (right side)
+    // linter layer (left side)
     &.linter-layer {
-      left: auto;
-      right: @scrollbar-edge-offset;
+      right: auto;
+      left: @scrollbar-marker-edge-offset;
       width: @scrollbar-marker-width-left;
       z-index: 15;
       &.error   { background-color: @text-color-error; }
@@ -77,10 +77,10 @@
       &.removed { background-color: @text-color-error; }
     }
 
-    // git layer (left side)
+    // git layer (right side)
     &.git-layer {
-      right: auto;
-      left: @scrollbar-edge-offset;
+      left: auto;
+      right: @scrollbar-marker-edge-offset;
       width: @scrollbar-marker-width-right;
       z-index: 11;
       &.added    { background-color: @text-color-success; }
