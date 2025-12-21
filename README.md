@@ -1,6 +1,6 @@
 # scroll-map
 
-Show markers on the scroll bar of text-editor. Built-in layers display markers for cursor positions, find-and-replace results, navigation-panel headers, linter messages, hydrogen breakpoints, and diff chunks. Markers work like hyperlinks - click to navigate. If layer threshold is exceeded, markers are hidden.
+Show markers on the scroll bar of text-editor. Built-in layers display markers for cursor positions, find-and-replace results, text highlights, navigation-panel headers, linter messages, hydrogen breakpoints, diff chunks, and git changes. Markers work like hyperlinks - click to navigate. If layer threshold is exceeded, markers are hidden.
 
 ![demo](https://github.com/asiloisad/pulsar-scroll-map/blob/master/assets/demo.png?raw=true)
 
@@ -14,10 +14,12 @@ To install `scroll-map` search for [scroll-map](https://web.pulsar-edit.dev/pack
 |-------|----------------|-------------|
 | cursor | built-in | Cursor positions |
 | find | find-and-replace | Search results |
+| highlight | highlight-simple | Selected text highlights |
 | navi | navigation-panel | Document headers |
-| linter | linter-bundle | Error/warning/info messages |
+| linter | linter | Error/warning/info messages |
 | hydrogen | hydrogen-next | Cell breakpoints |
 | diff | diff-view | Diff chunks (added/removed) |
+| git | built-in | Git changes (added/modified/removed) |
 
 Each layer can be enabled/disabled and has a configurable threshold in package settings.
 
@@ -41,14 +43,9 @@ Markers can be customized in your `styles.less` (open via `File > Stylesheet...`
   background-color: magenta;
 }
 
-// Change all marker heights
+// Change all marker heights to fixed
 .scroll-map .scroll-item {
   height: 5px !important;
-}
-
-// Change scroll-map width
-.scroll-map {
-  width: 15px;
 }
 ```
 
