@@ -1,14 +1,11 @@
 {
-  "name": "scrollmap",
+  "name": "scroll-map",
   "description": "Show markers on the scroll bar of text-editor",
   "repository": "https://github.com/asiloisad/pulsar-scrollmap",
   "keywords": [
-    "scroll",
-    "map",
-    "navigation",
-    "marker"
+    "scrollmap"
   ],
-  "version": "4.0.0",
+  "version": "5.0.0",
   "license": "MIT",
   "engines": {
     "atom": ">=1.100.0 <2.0.0"
@@ -24,7 +21,7 @@
   "providedServices": {
     "simplemap": {
       "versions": {
-        "1.0.0": "simplemapProvider"
+        "1.0.0": "provideSimplemap"
       }
     }
   },
