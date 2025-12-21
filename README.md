@@ -8,6 +8,12 @@ Show markers on the scroll bar of text-editor. This is the core package that pro
 
 To install `scrollmap` search for [scrollmap](https://web.pulsar-edit.dev/packages/scrollmap) in the Install pane of the Pulsar settings or run `ppm install scrollmap`. Alternatively, you can run `ppm install asiloisad/pulsar-scrollmap` to install a package directly from the GitHub repository.
 
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `scrollmap:toggle` | Show layer toggle panel to enable/disable layers |
+
 ## API Documentation
 
 The package consumes a `scrollmap` service from other packages to add custom layers.
@@ -26,7 +32,8 @@ The package consumes a `scrollmap` service from other packages to add custom lay
 provideScrollmap() {
   return {
     name: "mylayer",
-    timer: 100, // (optional)
+    description: "My layer description",
+    timer: 100,
     subscribe: (editor, update) => {
       return editor.onDidStopChanging(update);
     },
@@ -45,6 +52,7 @@ provideScrollmap() {
 | Property | Type | Description |
 |----------|------|-------------|
 | `name` | string | Layer name (CSS class: `marker-{name}`) |
+| `description` | string | Layer description shown in toggle panel (optional) |
 | `timer` | number | Throttle interval in ms (default: 50) |
 | `subscribe` | function | `(editor, update) => Disposable` - set up subscriptions |
 | `recalculate` | function | `(editor) => items[]` - return markers to render |
