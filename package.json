@@ -1,275 +1,34 @@
 {
-  "name": "scroll-map",
+  "name": "scrollmap",
   "description": "Show markers on the scroll bar of text-editor",
-  "repository": "https://github.com/asiloisad/pulsar-scroll-map",
+  "repository": "https://github.com/asiloisad/pulsar-scrollmap",
   "keywords": [
     "scroll",
     "map",
     "navigation",
     "marker"
   ],
-  "version": "3.0.2",
+  "version": "4.0.0",
   "license": "MIT",
   "engines": {
     "atom": ">=1.100.0 <2.0.0"
   },
   "main": "./lib/main",
   "consumedServices": {
-    "find-and-replace": {
+    "scrollmap": {
       "versions": {
-        "0.0.1": "consumeFindService"
-      }
-    },
-    "navigation-panel": {
-      "versions": {
-        "0.0.1": "consumeNaviService"
-      }
-    },
-    "hydrogen.breakpoints": {
-      "versions": {
-        "0.0.1": "consumeHydrogenService"
-      }
-    },
-    "diff-view": {
-      "versions": {
-        "0.0.1": "consumeDiffService"
-      }
-    },
-    "highlightSimple": {
-      "versions": {
-        "1.0.0": "consumeHighlightService"
+        "1.0.0": "consumeScrollmap"
       }
     }
   },
   "providedServices": {
-    "scroll-map": {
+    "simplemap": {
       "versions": {
-        "3.0.0": "serviceProvider"
-      }
-    },
-    "linter-ui": {
-      "versions": {
-        "1.0.0": "linterProvider"
+        "1.0.0": "simplemapProvider"
       }
     }
   },
   "dependencies": {
     "etch": "^0.14.1"
-  },
-  "configSchema": {
-    "cursorLayer": {
-      "order": 1,
-      "title": "Cursors position markers",
-      "description": "Markers for each cursor in the editor.",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "total": {
-          "order": 2,
-          "type": "boolean",
-          "title": "Show all cursors",
-          "description": "Display all cursors or only the last one.",
-          "default": true
-        },
-        "threshold": {
-          "order": 3,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "findLayer": {
-      "order": 2,
-      "title": "find-and-replace markers",
-      "description": "Markers from [find-and-replace](https://github.com/pulsar-edit/pulsar/tree/master/packages/find-and-replace) results.",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "permanent": {
-          "order": 2,
-          "type": "boolean",
-          "title": "Permanent view",
-          "description": "Keep markers visible even when the find panel is closed.",
-          "default": true
-        },
-        "threshold": {
-          "order": 3,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "naviLayer": {
-      "order": 3,
-      "title": "navigation-panel markers",
-      "description": "Markers from [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel) header list.",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "maxDepth": {
-          "order": 2,
-          "type": "integer",
-          "title": "Max depth",
-          "description": "Maximum header depth to display. Zero means no limit.",
-          "minimum": 0,
-          "default": 0
-        },
-        "threshold": {
-          "order": 3,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "linterLayer": {
-      "order": 4,
-      "title": "linter markers",
-      "description": "Markers from [linter](https://github.com/steelbrain/linter).",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "threshold": {
-          "order": 2,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "hydrogenLayer": {
-      "order": 5,
-      "title": "hydrogen-next markers",
-      "description": "Markers for cell breakpoints from [hydrogen-next](https://github.com/asiloisad/pulsar-hydrogen-next).",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "threshold": {
-          "order": 2,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "diffLayer": {
-      "order": 6,
-      "title": "diff-view markers",
-      "description": "Markers for diff chunks from [diff-view](https://github.com/asiloisad/pulsar-diff-view).",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "threshold": {
-          "order": 2,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "gitLayer": {
-      "order": 7,
-      "title": "git-diff markers",
-      "description": "Markers for git changes (added, modified, removed lines).",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "threshold": {
-          "order": 2,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "highlightLayer": {
-      "order": 8,
-      "title": "highlight-simple markers",
-      "description": "Markers for selected text highlights from [highlight-simple](https://github.com/asiloisad/pulsar-highlight-simple).",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "state": {
-          "order": 1,
-          "type": "boolean",
-          "title": "Layer state",
-          "description": "Enable or disable this layer.",
-          "default": true
-        },
-        "threshold": {
-          "order": 2,
-          "title": "Layer threshold",
-          "description": "The limit doesn't apply if zero.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    }
   }
 }

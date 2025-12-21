@@ -1,0 +1,51 @@
+// default values
+@scrollbar-width: 10px;
+@scrollbar-marker-edge-offset: 0px;
+@scrollbar-marker-width-center: 4px;
+
+@import "ui-variables";
+
+.scrollmap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: @scrollbar-width;
+  width: @scrollbar-width;
+  z-index: 9;
+  pointer-events: none;
+
+  .scrollmap-item {
+    position: absolute;
+    left: @scrollbar-marker-edge-offset;
+    right: @scrollbar-marker-edge-offset;
+    margin: 0 auto;
+    width: @scrollbar-marker-width-center;
+    pointer-events: auto;
+    transform: translateY(-50%);
+    min-height: 3px;
+    height: var(--scrollmap-marker-height);
+    cursor: default;
+  }
+}
+
+.simplemap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: @scrollbar-width;
+  z-index: 9;
+  pointer-events: none;
+
+  .simplemap-item {
+    position: absolute;
+    left: @scrollbar-marker-edge-offset;
+    right: @scrollbar-marker-edge-offset;
+    margin: 0 auto;
+    width: @scrollbar-marker-width-center;
+    pointer-events: auto;
+    transform: translateY(-50%);
+    min-height: 3px;
+    cursor: pointer;
+  }
+}

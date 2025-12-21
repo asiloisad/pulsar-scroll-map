@@ -1,110 +1,84 @@
-# scroll-map
+# scrollmap
 
-Show markers on the scroll bar of text-editor. Built-in layers display markers for cursor positions, find-and-replace results, text highlights, navigation-panel headers, linter messages, hydrogen breakpoints, diff chunks, and git changes. Markers work like hyperlinks - click to navigate. If layer threshold is exceeded, markers are hidden.
+Show markers on the scroll bar of text-editor. This is the core package that provides the scrollmap infrastructure. Install layer packages to add markers for different features.
 
-![demo](https://github.com/asiloisad/pulsar-scroll-map/blob/master/assets/demo.png?raw=true)
+![demo](https://github.com/asiloisad/pulsar-scrollmap/blob/master/assets/demo.png?raw=true)
 
 ## Installation
 
-To install `scroll-map` search for [scroll-map](https://web.pulsar-edit.dev/packages/scroll-map) in the Install pane of the Pulsar settings or run `ppm install scroll-map`. Alternatively, you can run `ppm install asiloisad/pulsar-scroll-map` to install a package directly from the GitHub repository.
+To install `scrollmap` search for [scrollmap](https://web.pulsar-edit.dev/packages/scrollmap) in the Install pane of the Pulsar settings or run `ppm install scrollmap`. Alternatively, you can run `ppm install asiloisad/pulsar-scrollmap` to install a package directly from the GitHub repository.
 
-## Built-in Layers
+## Layer Packages
 
-| Layer | Source Package | Description |
-|-------|----------------|-------------|
-| cursor | built-in | Cursor positions |
-| find | find-and-replace | Search results |
-| highlight | highlight-simple | Selected text highlights |
-| navi | navigation-panel | Document headers |
-| linter | linter | Error/warning/info messages |
-| hydrogen | hydrogen-next | Cell breakpoints |
-| diff | diff-view | Diff chunks (added/removed) |
-| git | built-in | Git changes (added/modified/removed) |
+Install these packages to add markers for specific features:
 
-Each layer can be enabled/disabled and has a configurable threshold in package settings.
+| Package | Description |
+|---------|-------------|
+| [scrollmap-cursors](https://github.com/asiloisad/pulsar-scrollmap-cursors) | Cursor positions |
+| [scrollmap-git-diff](https://github.com/asiloisad/pulsar-scrollmap-git-diff) | Git changes (added/modified/removed) |
+| [scrollmap-find-ar](https://github.com/asiloisad/pulsar-scrollmap-find-ar) | Find-and-replace results |
+| [scrollmap-navigation](https://github.com/asiloisad/pulsar-scrollmap-navigation) | Navigation-panel headers |
+| [scrollmap-linter](https://github.com/asiloisad/pulsar-scrollmap-linter) | Linter messages |
+| [scrollmap-hydrogen](https://github.com/asiloisad/pulsar-scrollmap-hydrogen) | Hydrogen breakpoints |
+| [scrollmap-diff-view](https://github.com/asiloisad/pulsar-scrollmap-diff-view) | Diff-view chunks |
+| [scrollmap-highlight](https://github.com/asiloisad/pulsar-scrollmap-highlight) | Highlight-simple markers |
+
+Each layer package has its own settings for enabling/disabling and threshold configuration.
 
 ## Customize Appearance
 
 Markers can be customized in your `styles.less` (open via `File > Stylesheet...` or command `application:open-your-stylesheet`).
 
 ```less
-// Change cursor marker color
-.scroll-map .scroll-item.cursor-layer {
-  background-color: red;
-}
-
-// Change find marker color
-.scroll-map .scroll-item.find-layer {
-  background-color: yellow;
-}
-
-// Change linter error color
-.scroll-map .scroll-item.linter-layer.error {
-  background-color: magenta;
-}
-
 // Change all marker heights to fixed
-.scroll-map .scroll-item {
+.scrollmap .scrollmap-item {
   height: 5px !important;
 }
 ```
 
 ## API Documentation
 
-The package provides a service for other packages to create custom layers.
+The package consumes a `scrollmap` service from other packages to add custom layers.
 
-### Consuming the Service
+### Providing a Layer
 
 ```javascript
 // In package.json:
-"consumedServices": {
-  "scroll-map": {
-    "versions": { "3.0.0": "consumeScrollMap" }
+"providedServices": {
+  "scrollmap": {
+    "versions": { "1.0.0": "provideScrollmap" }
   }
 }
 
 // In your main module:
-consumeScrollMap(service) {
-  service.registerLayer("myLayer", MyLayerClass);
-  return new Disposable(() => {
-    service.unregisterLayer("myLayer");
-  });
+provideScrollmap() {
+  return (Layer) => {
+    class MyLayer extends Layer {
+      constructor(editor) {
+        super({ editor, name: "mylayer", timer: 50 });
+        this.disposables.add(
+          editor.onDidStopChanging(this.update)
+        );
+      }
+
+      recalculate() {
+        this.items = [];
+        this.items.push({ row: 10 });           // basic marker
+        this.items.push({ row: 20, cls: "special" }); // with extra class
+      }
+    }
+    return { name: "mylayer", Layer: MyLayer };
+  };
 }
 ```
 
-### Creating a Custom Layer
+The factory function receives the `Layer` base class for creating custom layers.
 
-Extend the `Layer` base class:
+### Layer Properties
 
-```javascript
-class MyLayer extends service.Layer {
-  constructor(editor) {
-    super({ editor, name: "myname", timer: 50 });
-    this.data = null;
-    // Subscribe to update events if needed
-    this.disposables.add(
-      editor.onDidStopChanging(this.update)
-    );
-  }
-
-  // Optional: receive data from service consumer
-  setData(data) {
-    this.data = data;
-    this.update();
-  }
-
-  // Required: compute marker positions
-  recalculate() {
-    this.items = [];
-    this.items.push({ row: 10 });           // basic marker
-    this.items.push({ row: 20, cls: "special" }); // with extra class
-  }
-}
-```
-
-Layer properties:
 - `this.editor` - Text editor instance
-- `this.name` - Layer name (CSS class: `{name}-layer`)
+- `this.name` - Layer name (CSS class: `scrollmap-{name}`)
+- `this.configPath` - Config path for threshold (default: `scrollmap-{name}`)
 - `this.items` - Array of markers to render
 - `this.threshold` - Max items threshold from config
 - `this.update()` - Throttled recalculation trigger
@@ -112,18 +86,26 @@ Layer properties:
 
 ### SimpleMap for Non-Editor Panes
 
-For custom panes (like PDF viewer), use `SimpleMap`:
+For custom panes (like PDF viewer), consume the `simplemap` service:
 
 ```javascript
-const scrollMap = new service.SimpleMap();
+// In package.json:
+"consumedServices": {
+  "simplemap": {
+    "versions": { "1.0.0": "consumeSimpleMap" }
+  }
+}
 
-scrollMap.setItems([
-  { percent: 10, cls: "marker-1", click: () => goTo(1) },
-  { percent: 50, cls: "marker-2", click: () => goTo(2) }
-]);
-
-container.appendChild(scrollMap.element);
-scrollMap.destroy(); // cleanup
+// In your main module:
+consumeSimpleMap(SimpleMap) {
+  const scrollMap = new SimpleMap();
+  scrollMap.setItems([
+    { percent: 10, cls: "marker-1", click: () => goTo(1) },
+    { percent: 50, cls: "marker-2", click: () => goTo(2) }
+  ]);
+  container.appendChild(scrollMap.element);
+  return new Disposable(() => scrollMap.destroy());
+}
 ```
 
 ## Contributing
