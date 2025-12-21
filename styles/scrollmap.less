@@ -5,25 +5,27 @@
 
 @import "ui-variables";
 
-.scrollmap, .simplemap {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: @scrollbar-width;
-  width: @scrollbar-width;
-  z-index: 9;
-  pointer-events: none;
-
-  .marker {
+atom-text-editor {
+  .scrollmap, .simplemap {
     position: absolute;
-    left: @scrollmap-marker-edge;
-    right: @scrollmap-marker-edge;
-    margin: 0 auto;
-    width: @scrollmap-marker-width;
-    pointer-events: auto;
-    transform: translateY(-50%);
-    min-height: 1px;
-    height: var(--scrollmap-marker-height);
-    cursor: default;
+    top: 0;
+    right: 0;
+    bottom: @scrollbar-width;
+    width: @scrollbar-width;
+    z-index: 9;
+    pointer-events: none;
+
+    .marker {
+      position: absolute;
+      left: @scrollmap-marker-edge;
+      right: @scrollmap-marker-edge;
+      margin: 0 auto;
+      width: @scrollmap-marker-width;
+      pointer-events: auto;
+      transform: translateY(-50%);
+      min-height: 1px;
+      height: var(--scrollmap-marker-height);
+      cursor: default;
+    }
   }
 }

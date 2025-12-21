@@ -26,6 +26,17 @@
     }
   },
   "dependencies": {
-    "etch": "^0.14.1"
+    "etch": "^0.14.1",
+    "pulsar-select-list": "^1.0.0"
+  },
+  "configSchema": {
+    "disabledLayers": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "description": "List of disabled layer names"
+    }
   }
 }
