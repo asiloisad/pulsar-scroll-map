@@ -2,6 +2,7 @@
 @scrollbar-width: 10px;
 @scrollmap-marker-edge: 0px;
 @scrollmap-marker-width: 4px;
+@scrollmap-marker-wside: 2px;
 
 @import "ui-variables";
 
@@ -22,9 +23,18 @@
     margin: 0 auto;
     width: @scrollmap-marker-width;
     pointer-events: auto;
-    transform: translateY(-50%);
     min-height: 1px;
     height: var(--scrollmap-marker-height);
     cursor: default;
+    &.left {
+      right: auto;
+      left: @scrollmap-marker-edge;
+      width: @scrollmap-marker-wside;
+    }
+    &.right {
+      left: auto;
+      right: @scrollmap-marker-edge;
+      width: @scrollmap-marker-wside;
+    }
   }
 }
